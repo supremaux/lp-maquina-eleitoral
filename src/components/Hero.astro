@@ -1,5 +1,12 @@
 ---
 import { ShieldCheck, Zap } from "@lucide/astro";
+import type { any } from "astro:schema";
+
+// Counter de quantos dias faltam, da data atual, até 04 de outubro de 2026
+const targetDate = new Date("2026-10-04T00:00:00Z");
+const now = new Date();
+const timeDiff = targetDate.getTime() - now.getTime();
+const dias = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 ---
 
 <section
@@ -11,7 +18,7 @@ import { ShieldCheck, Zap } from "@lucide/astro";
       class="inline-flex items-center gap-2 bg-[#F04820]/20 text-[#F04820] border border-[#F04820] px-4 py-1.5 rounded-full font-bold text-sm mb-6 animate-pulse"
     >
       <Zap class="w-4 h-4" />
-      <span>FALTAM MENOS DE 45 DIAS</span>
+      <span>FALTAM MENOS DE {dias} DIAS</span>
     </div>
 
     <!-- H1 Headline -->
