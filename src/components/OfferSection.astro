@@ -1,45 +1,23 @@
 ---
-import { Check, ShieldCheck, Zap, Star, ArrowRight, Lock } from "@lucide/astro";
+import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
 
 const monthlyPlan = {
   name: "Plano Mensal",
-  badge: "FLEXIBILIDADE",
+  badge: "ACESSO IMEDIATO",
   price: "97",
   period: "/mês",
   description:
-    "Ideal para testar a ferramenta e estruturar os primeiros meses de pré-campanha.",
+    "Acesso completo à plataforma para estruturar a comunicação da sua pré-campanha.",
   features: [
-    "Acesso completo a todos os 6 Módulos de Formato",
+    "Acesso completo aos 6 Módulos de Formato",
     "Geração ilimitada de Roteiros, Carrosséis e Stories",
     "Módulo SPY (Investigação de Perfis e Materiais)",
-    "Roteiros para Discursos e Transmissões de WhatsApp",
+    "Roteiros para Discursos e Disparos de WhatsApp",
     "Suporte prioritário e atualizações de pautas",
-    "Sem fidelidade (cancele quando quiser)",
+    "Sem fidelidade (cancele a qualquer momento)",
   ],
-  ctaText: "Assinar Plano Mensal",
-  checkoutUrl: "https://pay.hotmart.com/MENSAL_URL", // Substitua pelo link Hotmart
-  highlighted: false,
-};
-
-const annualPlan = {
-  name: "Plano Anual",
-  badge: "MAIS VENDIDO · 2 MESES GRÁTIS",
-  price: "81",
-  cents: ",50",
-  period: "/mês",
-  billingDetail: "Cobrado anualmente (12x de R$ 97,00 ou R$ 978 à vista)",
-  description:
-    "A escolha das equipes de alto desempenho para garantir toda a jornada das Eleições 2026.",
-  features: [
-    "TUDO do Plano Mensal com desconto exclusivo",
-    "Acesso garantido durante todo o período eleitoral 2026",
-    "Prioridade máxima no processamento de requisições SPY",
-    "Modelos exclusivos de Pautas de Crise e Resposta Rápida",
-    "Garantia Incondicional de 7 Dias Hotmart",
-  ],
-  ctaText: "Garantir Oferta Anual com Desconto",
-  checkoutUrl: "https://pay.hotmart.com/ANUAL_URL", // Substitua pelo link Hotmart
-  highlighted: true,
+  ctaText: "Garantir Acesso Agora",
+  checkoutUrl: "https://pay.hotmart.com/SEU_LINK_AQUI", // Substitua pelo link real da Hotmart
 };
 ---
 
@@ -58,117 +36,62 @@ const annualPlan = {
       <h2
         class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
       >
-        Escolha o plano ideal para a sua <span class="text-[#0894B0]"
-          >pré-campanha</span
-        >.
+        Acelere a sua <span class="text-[#0894B0]">pré-campanha</span> hoje mesmo.
       </h2>
       <p class="text-gray-300 text-lg md:text-xl font-normal">
         Acesse imediatamente a plataforma e transforme a rotina da sua equipe
-        digital hoje mesmo.
+        digital sem contratos de fidelidade.
       </p>
     </div>
 
-    <!-- Tabela de Preços (Grid 2 Colunas) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
-      <!-- PLANO MENSAL -->
+    <!-- Grid principal: Card de Oferta + Imagem -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
+      <!-- CARD PLANO MENSAL (DESTAQUE VIBRANTE) -->
       <div
-        class="bg-gray-900/80 border border-gray-800 rounded-3xl p-8 flex flex-col justify-between hover:border-gray-700 transition-all shadow-xl"
+        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 md:p-10 flex flex-col justify-between relative shadow-2xl"
       >
+        <!-- Badge Superior -->
+        <div class="flex items-center justify-between mb-6">
+          <span
+            class="text-xs font-black text-[#70C0D8] bg-[#0894B0]/20 px-3.5 py-1.5 rounded-md uppercase tracking-wider border border-[#0894B0]/30 flex items-center gap-1.5"
+          >
+            <Zap class="w-4 h-4 fill-current text-[#0894B0]" />
+            {monthlyPlan.badge}
+          </span>
+          <span
+            class="text-xs text-gray-400 font-bold uppercase tracking-wider"
+          >
+            Sem Fidelidade
+          </span>
+        </div>
+
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span
-              class="text-xs font-extrabold text-gray-400 bg-gray-800 px-3 py-1 rounded-md uppercase tracking-wider"
-            >
-              {monthlyPlan.badge}
-            </span>
-          </div>
+          <h3 class="text-3xl font-black text-white mb-2">
+            {monthlyPlan.name}
+          </h3>
+          <p class="text-gray-300 text-sm mb-6">{monthlyPlan.description}</p>
 
-          <h3 class="text-2xl font-bold text-white mb-2">{monthlyPlan.name}</h3>
-          <p class="text-gray-400 text-sm mb-6">{monthlyPlan.description}</p>
-
-          <!-- Preço -->
+          <!-- Bloco de Preço Destaque -->
           <div class="mb-8 pb-6 border-b border-gray-800">
             <div class="flex items-baseline gap-1">
-              <span class="text-gray-400 text-xl font-bold">R$</span>
-              <span class="text-5xl font-black text-white tracking-tight"
+              <span class="text-gray-400 text-2xl font-bold">R$</span>
+              <span class="text-6xl font-black text-white tracking-tight"
                 >{monthlyPlan.price}</span
               >
-              <span class="text-gray-400 font-medium">{monthlyPlan.period}</span
+              <span class="text-gray-400 font-bold text-lg"
+                >{monthlyPlan.period}</span
               >
             </div>
-          </div>
-
-          <!-- Features -->
-          <ul class="space-y-4 mb-8">
-            {
-              monthlyPlan.features.map((feature) => (
-                <li class="flex items-start gap-3 text-sm text-gray-300">
-                  <Check class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div>
-          <a
-            href={monthlyPlan.checkoutUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block w-full text-center py-4 px-6 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl transition-all border border-gray-700 uppercase tracking-wide text-sm"
-          >
-            {monthlyPlan.ctaText}
-          </a>
-        </div>
-      </div>
-
-      <!-- PLANO ANUAL (DESTAQUE) -->
-      <div
-        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl transform lg:-translate-y-2"
-      >
-        <!-- Badge de Destaque -->
-        <div
-          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#0894B0] text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md flex items-center gap-1.5"
-        >
-          <Star class="w-3.5 h-3.5 fill-current" />
-          <span>{annualPlan.badge}</span>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-4 pt-2">
-            <span
-              class="text-xs font-extrabold text-[#70C0D8] bg-[#0894B0]/20 px-3 py-1 rounded-md uppercase tracking-wider border border-[#0894B0]/30"
-            >
-              RECOMENDADO PARA ELEIÇÕES
-            </span>
-          </div>
-
-          <h3 class="text-2xl font-bold text-white mb-2">{annualPlan.name}</h3>
-          <p class="text-gray-300 text-sm mb-6">{annualPlan.description}</p>
-
-          <!-- Preço -->
-          <div class="mb-8 pb-6 border-b border-gray-800">
-            <div class="flex items-baseline gap-1">
-              <span class="text-gray-400 text-xl font-bold">R$</span>
-              <span class="text-5xl font-black text-white tracking-tight"
-                >{annualPlan.price}</span
-              >
-              <span class="text-2xl font-bold text-white"
-                >{annualPlan.cents}</span
-              >
-              <span class="text-gray-400 font-medium">{annualPlan.period}</span>
-            </div>
-            <p class="text-xs text-[#70C0D8] font-medium mt-1">
-              {annualPlan.billingDetail}
+            <p class="text-xs text-[#70C0D8] font-medium mt-2">
+              Cobrança mensal recorrente. Cancele quando quiser.
             </p>
           </div>
 
-          <!-- Features -->
+          <!-- Lista de Recursos -->
           <ul class="space-y-4 mb-8">
             {
-              annualPlan.features.map((feature) => (
-                <li class="flex items-start gap-3 text-sm text-gray-200">
+              monthlyPlan.features.map((feature) => (
+                <li class="flex items-start gap-3 text-sm md:text-base text-gray-200">
                   <Check class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
                   <span class="font-medium">{feature}</span>
                 </li>
@@ -177,17 +100,33 @@ const annualPlan = {
           </ul>
         </div>
 
+        <!-- Botão CTA -->
         <div>
           <a
-            href={annualPlan.checkoutUrl}
+            href={monthlyPlan.checkoutUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full text-center py-4 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-base flex items-center justify-center gap-2"
+            class="block w-full text-center py-4 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-lg flex items-center justify-center gap-2"
           >
-            <span>{annualPlan.ctaText}</span>
+            <span>{monthlyPlan.ctaText}</span>
             <ArrowRight class="w-5 h-5" />
           </a>
         </div>
+      </div>
+
+      <!-- ILUSTRAÇÃO DA URNA ELEITORAL -->
+      <div class="relative flex items-center justify-center p-4">
+        <div
+          class="absolute inset-0 bg-[#0894B0]/10 rounded-3xl filter blur-3xl -z-10"
+        >
+        </div>
+        <img
+          src="/urnaEleitoral.avif"
+          alt="Urna Eleitoral - Máquina de Conteúdo Eleitoral"
+          class="w-full max-w-md lg:max-w-full h-auto object-contain rounded-2xl drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
 
@@ -216,9 +155,9 @@ const annualPlan = {
         </h3>
         <p class="text-gray-300 text-sm md:text-base leading-relaxed">
           Assine a Máquina de Conteúdo Eleitoral e teste na prática com a sua
-          equipe. Se dentro de 7 dias você achar que a ferramenta não economizou
-          o tempo das suas reuniões ou não entregou valor para a sua campanha,
-          basta solicitar o reembolso na Hotmart com 1 clique.
+          equipe. Se dentro de 7 dias você entender que a ferramenta não
+          otimizou a sua rotina, solicite o reembolso na Hotmart com apenas 1
+          clique.
         </p>
       </div>
     </div>

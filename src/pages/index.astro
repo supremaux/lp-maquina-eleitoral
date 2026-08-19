@@ -9,6 +9,7 @@ import TargetAudience from "../components/TargetAudience.astro";
 import OfferSection from "../components/OfferSection.astro";
 import ChoiceSection from "../components/ChoiceSection.astro";
 import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner";
 ---
 
 <Layout title="Máquina de Conteúdo Eleitoral - Transforme Pautas em Votos">
@@ -23,4 +24,5 @@ import Footer from "../components/Footer.astro";
     <ChoiceSection />
   </main>
   <Footer />
+  <CookieBanner client:idle />
 </Layout>
