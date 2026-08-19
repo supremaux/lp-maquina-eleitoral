@@ -1,0 +1,95 @@
+---
+import "../styles/global.css";
+import CookieBanner from "../components/CookieBanner";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Máquina de Conteúdo Eleitoral · Estratégia Digital para Pré-Campanha",
+  description = "Automatize a produção de conteúdos eleitorais em múltiplos formatos: Reels, Carrosséis, Stories, WhatsApp e Discursos com inteligência tática.",
+  image = "/og-image.png", // Adicione a imagem de preview (1200x630px) na pasta public/
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="Máquina Eleitoral" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Máquina de Conteúdo Eleitoral" />
+
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Imagens do Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+  </head>
+
+  <body
+    class="bg-[#182838] text-white font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#0894B0] selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden"
+  >
+    <!-- Slot para os componentes da página -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Componente de Cookies para LGPD -->
+    <CookieBanner client:idle />
+  </body>
+</html>
+
+<style is:global>
+  /* Smooth Scroll Behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #182838;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0894b0;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #067a92;
+  }
+</style>

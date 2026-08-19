@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #0894B0;
+    --color-cta: #F04820;
+    --color-secondary: #70C0D8;
+    --color-dark: #182838;
+    --color-light: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+  }
+}

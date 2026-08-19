@@ -1,0 +1,124 @@
+---
+import { Video, Layers, Smartphone, MessageSquare, Mic, Search, ArrowRight, Sparkles } from '@lucide/astro';
+
+const formats = [
+  {
+    icon: Video,
+    tag: "VÍDEO CURTO",
+    title: "Reels & TikTok",
+    description: "Roteiros com ganchos fortes nos primeiros 3 segundos, estrutura de retenção (Pauta + Consequência + Prova) e direções claras de cena.",
+    badges: ["30s a 90s", "Ganchos Visuais", "Alta Retenção"]
+  },
+  {
+    icon: Layers,
+    tag: "DIDÁTICO & SEQUENCIAL",
+    title: "Carrossel Nutritivo",
+    description: "Distribuição estratégica de ideias slide a slide. Ideal para explicar propostas, prestação de contas, comparações e linhas do tempo.",
+    badges: ["7 a 10 Slides", "Capas Magnéticas", "Explicador"]
+  },
+  {
+    icon: Smartphone,
+    tag: "PRESENÇA DIÁRIA",
+    title: "Sequência de Stories",
+    description: "Transforme visitas, reuniões, bastidores e momentos do dia em narrativas humanas que conectam e geram participação direta.",
+    badges: ["Sequências de 5-9", "Bastidores", "Enquetes & Caixas"]
+  },
+  {
+    icon: MessageSquare,
+    tag: "MENSAGEM DIRETA",
+    title: "Disparo de WhatsApp",
+    description: "Textos diretos formatados para tela pequena. Comunicação direta com lideranças, grupos de apoiadores e listas de transmissão.",
+    badges: ["Linguagem Direta", "Links Limpos", "Sem Encheção"]
+  },
+  {
+    icon: Mic,
+    tag: "ORATÓRIA & EVENTOS",
+    title: "Discursos de Impacto",
+    description: "Estruturas orais prontas para tribuna, plenário, reuniões comunitárias, comícios ou entrevistas, calibradas pelo tempo de fala.",
+    badges: ["3min a 10min", "Tribuna & Rua", "Tom Persuasivo"]
+  },
+  {
+    icon: Search,
+    tag: "INVESTIGAÇÃO & TÁTICA",
+    title: "Modo SPY",
+    description: "Desmonte a lógica de perfis de sucesso ou concorrentes. Aprenda os padrões de retenção, ganchos e narrativas sem virar cópia.",
+    badges: ["Modelagem Tática", "Análise de Arquivos", "Padrões de Viralização"]
+  }
+];
+---
+
+<section id="modulos" class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Header da Seção -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 bg-[#0894B0]/10 text-[#0894B0] border border-[#0894B0]/30 px-4 py-1.5 rounded-full font-extrabold text-sm uppercase tracking-widest mb-4">
+        <Sparkles class="w-4 h-4" />
+        <span>Módulos de Formato</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6">
+        Uma única pauta, <span class="text-[#0894B0]">todos os formatos</span> que sua campanha precisa.
+      </h2>
+      <p class="text-gray-300 text-lg md:text-xl font-normal">
+        A Máquina reorganiza a informação central e adapta a mensagem para a linguagem exata de cada canal.
+      </p>
+    </div>
+
+    <!-- Grid de Cards dos Formatos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {formats.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <div class="bg-gray-900/80 border border-gray-800 hover:border-[#0894B0] rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group shadow-lg">
+            <div>
+              <!-- Header do Card -->
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-xl bg-[#0894B0]/15 border border-[#0894B0]/30 flex items-center justify-center text-[#0894B0] group-hover:bg-[#0894B0] group-hover:text-white transition-all">
+                  <IconComponent class="w-6 h-6" />
+                </div>
+                <span class="text-xs font-bold text-[#70C0D8] bg-[#0894B0]/10 px-3 py-1 rounded-md border border-[#0894B0]/20 uppercase tracking-wider">
+                  {item.tag}
+                </span>
+              </div>
+
+              <!-- Título e Descrição -->
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#70C0D8] transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                {item.description}
+              </p>
+            </div>
+
+            <!-- Badges Técnicos -->
+            <div class="pt-4 border-t border-gray-800 flex flex-wrap gap-2">
+              {item.badges.map((badge) => (
+                <span class="text-xs text-gray-300 bg-gray-800/80 px-2.5 py-1 rounded-md font-medium">
+                  • {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Banner de Chamada para Ação Integrado -->
+    <div class="bg-gradient-to-r from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0]/40 rounded-2xl p-8 text-center flex flex-col items-center justify-center">
+      <h3 class="text-xl md:text-2xl font-bold text-white mb-3">
+        Chega de publicar conteúdo morno e sem direcionamento eleitoral.
+      </h3>
+      <p class="text-gray-300 text-base mb-6 max-w-2xl">
+        Ative a Máquina de Conteúdo Eleitoral por apenas R$ 97/mês e automatize a produção da sua equipe hoje mesmo.
+      </p>
+      <a 
+        href="#oferta" 
+        class="inline-flex items-center gap-2 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-xl text-lg uppercase tracking-wide shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+      >
+        <span>Quero Acessar Todos os Módulos</span>
+        <ArrowRight class="w-5 h-5" />
+      </a>
+    </div>
+
+  </div>
+</section>

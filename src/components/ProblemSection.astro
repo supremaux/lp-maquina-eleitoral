@@ -1,0 +1,113 @@
+---
+import { Clock, Flame, AlertTriangle, CheckCircle2 } from "@lucide/astro";
+
+const problems = [
+  {
+    icon: Clock,
+    title: "Horas perdidas em reuniões sem fim",
+    description:
+      "Sua equipe passa horas discutindo o que publicar hoje, enquanto concorrentes postam matérias e posicionamentos em tempo real.",
+  },
+  {
+    icon: Flame,
+    title: "Apagando incêndios e sem estratégia",
+    description:
+      "A rotina do mandato ou da pré-campanha consome o tempo, fazendo o conteúdo ser feito de última hora e sem conexão com o eleitorado.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Conteúdo genérico que ninguém engaja",
+    description:
+      "Postar apenas fotos de eventos e textos institucionais longos faz a audiência ignorar suas pautas e propostas na timeline.",
+  },
+];
+
+const solutions = [
+  "Roteiros e ganchos de alta retenção prontos em 2 minutos",
+  "Transformação imediata de pautas reais em Reels, Carrosséis e Stories",
+  "Estrutura padronizada com prova, causa e consequência para gerar autoridade",
+];
+---
+
+<section
+  id="problema"
+  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Cabeçalho da Seção -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-[#F04820] font-extrabold text-sm uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
+      >
+        O Gargalo das Campanhas
+      </span>
+      <h2
+        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+      >
+        A comunicação política tradicional <span class="text-[#0894B0]"
+          >está queimando o seu tempo</span
+        > e os seus votos.
+      </h2>
+      <p class="text-gray-300 text-lg md:text-xl font-normal">
+        Sem um fluxo claro de produção, a comunicação digital vira um fardo
+        diário em vez de ser o motor da sua pré-campanha.
+      </p>
+    </div>
+
+    <!-- Cards de Problemas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {
+        problems.map((item) => {
+          const IconComponent = item.icon;
+          return (
+            <div class="bg-gray-900/60 border border-gray-800 hover:border-[#F04820]/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 group">
+              <div class="w-14 h-14 rounded-xl bg-[#F04820]/10 border border-[#F04820]/30 flex items-center justify-center text-[#F04820] mb-6 group-hover:scale-110 transition-transform">
+                <IconComponent class="w-7 h-7" />
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">{item.title}</h3>
+              <p class="text-gray-400 text-base leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Bloco de Virada / Solução -->
+    <div
+      class="bg-gradient-to-r from-[#0894B0]/20 via-gray-900 to-[#0894B0]/20 border border-[#0894B0]/40 rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8"
+    >
+      <div class="max-w-2xl">
+        <h3 class="text-2xl md:text-3xl font-black text-white mb-4">
+          Existe um jeito mais rápido e profissional de liderar a narrativa.
+        </h3>
+        <p class="text-gray-300 text-base mb-6">
+          A Máquina de Conteúdo Eleitoral automatiza a estruturação da mensagem,
+          garantindo que qualquer fato do dia se torne uma peça eleitoral
+          completa:
+        </p>
+        <ul class="space-y-3 text-left">
+          {
+            solutions.map((sol) => (
+              <li class="flex items-start gap-3 text-gray-200">
+                <CheckCircle2 class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
+                <span class="font-medium">{sol}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- CTA Secundário de Seção -->
+      <div class="flex-shrink-0 w-full md:w-auto">
+        <a
+          href="#oferta"
+          class="inline-block w-full md:w-auto text-center px-8 py-4 bg-[#0894B0] hover:bg-[#067389] text-white font-extrabold text-lg rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 uppercase tracking-wide"
+        >
+          Mudar Minha Rotina Agora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

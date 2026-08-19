@@ -1,0 +1,226 @@
+---
+import { Check, ShieldCheck, Zap, Star, ArrowRight, Lock } from "@lucide/astro";
+
+const monthlyPlan = {
+  name: "Plano Mensal",
+  badge: "FLEXIBILIDADE",
+  price: "97",
+  period: "/mês",
+  description:
+    "Ideal para testar a ferramenta e estruturar os primeiros meses de pré-campanha.",
+  features: [
+    "Acesso completo a todos os 6 Módulos de Formato",
+    "Geração ilimitada de Roteiros, Carrosséis e Stories",
+    "Módulo SPY (Investigação de Perfis e Materiais)",
+    "Roteiros para Discursos e Transmissões de WhatsApp",
+    "Suporte prioritário e atualizações de pautas",
+    "Sem fidelidade (cancele quando quiser)",
+  ],
+  ctaText: "Assinar Plano Mensal",
+  checkoutUrl: "https://pay.hotmart.com/MENSAL_URL", // Substitua pelo link Hotmart
+  highlighted: false,
+};
+
+const annualPlan = {
+  name: "Plano Anual",
+  badge: "MAIS VENDIDO · 2 MESES GRÁTIS",
+  price: "81",
+  cents: ",50",
+  period: "/mês",
+  billingDetail: "Cobrado anualmente (12x de R$ 97,00 ou R$ 978 à vista)",
+  description:
+    "A escolha das equipes de alto desempenho para garantir toda a jornada das Eleições 2026.",
+  features: [
+    "TUDO do Plano Mensal com desconto exclusivo",
+    "Acesso garantido durante todo o período eleitoral 2026",
+    "Prioridade máxima no processamento de requisições SPY",
+    "Modelos exclusivos de Pautas de Crise e Resposta Rápida",
+    "Garantia Incondicional de 7 Dias Hotmart",
+  ],
+  ctaText: "Garantir Oferta Anual com Desconto",
+  checkoutUrl: "https://pay.hotmart.com/ANUAL_URL", // Substitua pelo link Hotmart
+  highlighted: true,
+};
+---
+
+<section
+  id="oferta"
+  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20 relative"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Header da Seção -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-[#F04820] font-extrabold text-sm uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
+      >
+        Invista na Sua Comunicação
+      </span>
+      <h2
+        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+      >
+        Escolha o plano ideal para a sua <span class="text-[#0894B0]"
+          >pré-campanha</span
+        >.
+      </h2>
+      <p class="text-gray-300 text-lg md:text-xl font-normal">
+        Acesse imediatamente a plataforma e transforme a rotina da sua equipe
+        digital hoje mesmo.
+      </p>
+    </div>
+
+    <!-- Tabela de Preços (Grid 2 Colunas) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
+      <!-- PLANO MENSAL -->
+      <div
+        class="bg-gray-900/80 border border-gray-800 rounded-3xl p-8 flex flex-col justify-between hover:border-gray-700 transition-all shadow-xl"
+      >
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span
+              class="text-xs font-extrabold text-gray-400 bg-gray-800 px-3 py-1 rounded-md uppercase tracking-wider"
+            >
+              {monthlyPlan.badge}
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white mb-2">{monthlyPlan.name}</h3>
+          <p class="text-gray-400 text-sm mb-6">{monthlyPlan.description}</p>
+
+          <!-- Preço -->
+          <div class="mb-8 pb-6 border-b border-gray-800">
+            <div class="flex items-baseline gap-1">
+              <span class="text-gray-400 text-xl font-bold">R$</span>
+              <span class="text-5xl font-black text-white tracking-tight"
+                >{monthlyPlan.price}</span
+              >
+              <span class="text-gray-400 font-medium">{monthlyPlan.period}</span
+              >
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-4 mb-8">
+            {
+              monthlyPlan.features.map((feature) => (
+                <li class="flex items-start gap-3 text-sm text-gray-300">
+                  <Check class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <a
+            href={monthlyPlan.checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full text-center py-4 px-6 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl transition-all border border-gray-700 uppercase tracking-wide text-sm"
+          >
+            {monthlyPlan.ctaText}
+          </a>
+        </div>
+      </div>
+
+      <!-- PLANO ANUAL (DESTAQUE) -->
+      <div
+        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl transform lg:-translate-y-2"
+      >
+        <!-- Badge de Destaque -->
+        <div
+          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#0894B0] text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md flex items-center gap-1.5"
+        >
+          <Star class="w-3.5 h-3.5 fill-current" />
+          <span>{annualPlan.badge}</span>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4 pt-2">
+            <span
+              class="text-xs font-extrabold text-[#70C0D8] bg-[#0894B0]/20 px-3 py-1 rounded-md uppercase tracking-wider border border-[#0894B0]/30"
+            >
+              RECOMENDADO PARA ELEIÇÕES
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white mb-2">{annualPlan.name}</h3>
+          <p class="text-gray-300 text-sm mb-6">{annualPlan.description}</p>
+
+          <!-- Preço -->
+          <div class="mb-8 pb-6 border-b border-gray-800">
+            <div class="flex items-baseline gap-1">
+              <span class="text-gray-400 text-xl font-bold">R$</span>
+              <span class="text-5xl font-black text-white tracking-tight"
+                >{annualPlan.price}</span
+              >
+              <span class="text-2xl font-bold text-white"
+                >{annualPlan.cents}</span
+              >
+              <span class="text-gray-400 font-medium">{annualPlan.period}</span>
+            </div>
+            <p class="text-xs text-[#70C0D8] font-medium mt-1">
+              {annualPlan.billingDetail}
+            </p>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-4 mb-8">
+            {
+              annualPlan.features.map((feature) => (
+                <li class="flex items-start gap-3 text-sm text-gray-200">
+                  <Check class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
+                  <span class="font-medium">{feature}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <a
+            href={annualPlan.checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full text-center py-4 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-base flex items-center justify-center gap-2"
+          >
+            <span>{annualPlan.ctaText}</span>
+            <ArrowRight class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloco de Garantia Hotmart -->
+    <div
+      class="bg-gray-900/90 border border-gray-800 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 shadow-xl"
+    >
+      <div
+        class="w-20 h-20 rounded-2xl bg-[#0894B0]/15 border border-[#0894B0]/40 flex items-center justify-center text-[#0894B0] flex-shrink-0"
+      >
+        <ShieldCheck class="w-10 h-10" />
+      </div>
+
+      <div class="text-center md:text-left">
+        <div
+          class="flex items-center justify-center md:justify-start gap-2 mb-2"
+        >
+          <Lock class="w-4 h-4 text-[#0894B0]" />
+          <span
+            class="text-xs font-bold text-[#0894B0] uppercase tracking-wider"
+            >COMPRA 100% SEGURA VIA HOTMART</span
+          >
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-2">
+          Garantia Incondicional de 7 Dias
+        </h3>
+        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+          Assine a Máquina de Conteúdo Eleitoral e teste na prática com a sua
+          equipe. Se dentro de 7 dias você achar que a ferramenta não economizou
+          o tempo das suas reuniões ou não entregou valor para a sua campanha,
+          basta solicitar o reembolso na Hotmart com 1 clique.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

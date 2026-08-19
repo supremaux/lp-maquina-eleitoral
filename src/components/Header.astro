@@ -1,0 +1,118 @@
+---
+import { Zap, Menu, X } from "@lucide/astro";
+import Logo from "../components/Logo.astro";
+---
+
+<header
+  class="sticky top-0 z-50 bg-[#182838] border-b border-[#0894B0]/30 backdrop-blur-md bg-opacity-95"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo / Branding -->
+      <Logo />
+
+      <!-- Desktop Navigation Links -->
+      <nav
+        class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300"
+      >
+        <a href="#funcionalidades" class="hover:text-white transition-colors"
+          >Como Funciona</a
+        >
+        <a href="#módulos" class="hover:text-white transition-colors"
+          >Formatos</a
+        >
+        <a href="#spy" class="hover:text-white transition-colors">Recurso SPY</a
+        >
+        <a href="#oferta" class="hover:text-white transition-colors"
+          >Investimento</a
+        >
+      </nav>
+
+      <!-- Desktop Action CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          href="https://pay.hotmart.com/SEU_LINK_AQUI"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-5 py-2.5 rounded-lg text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 uppercase tracking-wide"
+        >
+          <Zap class="w-4 h-4 fill-current" />
+          <span>Ativar Máquina</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden">
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="text-gray-300 hover:text-white focus:outline-none p-2"
+          aria-label="Abrir menu"
+        >
+          <Menu id="menu-icon-open" class="w-7 h-7 block" />
+          <X id="menu-icon-close" class="w-7 h-7 hidden" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-[#182838] border-b border-[#0894B0]/30 px-4 pt-2 pb-6 space-y-4"
+  >
+    <nav class="flex flex-col gap-3 text-base font-medium text-gray-300">
+      <a
+        href="#funcionalidades"
+        class="mobile-nav-link py-2 border-b border-gray-800 hover:text-white"
+        >Como Funciona</a
+      >
+      <a
+        href="#módulos"
+        class="mobile-nav-link py-2 border-b border-gray-800 hover:text-white"
+        >Formatos</a
+      >
+      <a
+        href="#spy"
+        class="mobile-nav-link py-2 border-b border-gray-800 hover:text-white"
+        >Recurso SPY</a
+      >
+      <a href="#oferta" class="mobile-nav-link py-2 hover:text-white"
+        >Investimento</a
+      >
+    </nav>
+    <a
+      href="https://pay.hotmart.com/SEU_LINK_AQUI"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-full flex items-center justify-center gap-2 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold py-3 rounded-lg text-base uppercase tracking-wide shadow-md"
+    >
+      <Zap class="w-5 h-5 fill-current" />
+      <span>Ativar Máquina</span>
+    </a>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+  const navLinks = document.querySelectorAll(".mobile-nav-link");
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle("hidden");
+    iconOpen?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+  }
+
+  menuButton?.addEventListener("click", toggleMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!mobileMenu?.classList.contains("hidden")) {
+        toggleMenu();
+      }
+    });
+  });
+</script>

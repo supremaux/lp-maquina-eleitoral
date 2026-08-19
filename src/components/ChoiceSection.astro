@@ -1,0 +1,153 @@
+---
+import {
+  XCircle,
+  CheckCircle,
+  ArrowRight,
+  TrendingUp,
+  AlertOctagon,
+} from "@lucide/astro";
+
+const amateurWay = [
+  "Horas de reunião diária para decidir 'o que postar hoje'",
+  "Dependência total do improviso do candidato",
+  "Posts genéricos com baixa retenção e visual amador",
+  "Sensação constante de estar apagando incêndios na pré-campanha",
+  "Perda de votos para concorrentes com comunicação mais ágil",
+];
+
+const machineWay = [
+  "Roteiros e pautas da semana estruturados em 2 minutos",
+  "Linha editorial clara com tom de voz e causa definidos",
+  "Formatos de alta retenção (Reels, Carrosséis e Stories)",
+  "Equipe alinhada e produzindo conteúdo com padrão profissional",
+  "Domínio da narrativa local e autoridade perante o eleitorado",
+];
+---
+
+<section
+  id="comparativo"
+  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Header da Seção -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-[#F04820] font-extrabold text-sm uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
+      >
+        A Decisão Tática
+      </span>
+      <h2
+        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+      >
+        Nas eleições 2026, o <span class="text-[#F04820]">amadorismo</span> custa
+        muito caro.
+      </h2>
+      <p class="text-gray-300 text-lg md:text-xl font-normal">
+        Compare os dois caminhos possíveis para a comunicação do seu mandato ou
+        pré-campanha:
+      </p>
+    </div>
+
+    <!-- Tabela Comparativa (Grid de 2 Colunas) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <!-- CAMINHO AMADOR -->
+      <div
+        class="bg-gray-900/60 border border-red-900/40 rounded-2xl p-8 relative flex flex-col justify-between"
+      >
+        <div>
+          <div
+            class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500"
+            >
+              <AlertOctagon class="w-5 h-5" />
+            </div>
+            <div>
+              <span
+                class="text-xs font-bold text-red-400 uppercase tracking-wider block"
+                >O Caminho Atual</span
+              >
+              <h3 class="text-xl font-black text-white">Comunicação Amadora</h3>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            {
+              amateurWay.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-400">
+                  <XCircle class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="p-4 rounded-xl bg-red-950/30 border border-red-900/30 text-center"
+        >
+          <span class="text-xs font-bold text-red-300"
+            >Resultado: Desperdício de tempo e perda de engajamento</span
+          >
+        </div>
+      </div>
+
+      <!-- CAMINHO DA MÁQUINA (DESTAQUE) -->
+      <div
+        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-2xl p-8 relative flex flex-col justify-between shadow-2xl"
+      >
+        <div>
+          <div
+            class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-[#0894B0]/20 border border-[#0894B0]/40 flex items-center justify-center text-[#0894B0]"
+            >
+              <TrendingUp class="w-5 h-5" />
+            </div>
+            <div>
+              <span
+                class="text-xs font-bold text-[#70C0D8] uppercase tracking-wider block"
+                >O Novo Padrão</span
+              >
+              <h3 class="text-xl font-black text-white">
+                Com a Máquina Eleitoral
+              </h3>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            {
+              machineWay.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-200">
+                  <CheckCircle class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
+                  <span class="font-medium">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="p-4 rounded-xl bg-[#0894B0]/15 border border-[#0894B0]/30 text-center"
+        >
+          <span class="text-xs font-bold text-[#70C0D8]"
+            >Resultado: Rotina otimizada, autoridade e retenção real</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Chamada para Ação -->
+    <div class="text-center">
+      <a
+        href="#oferta"
+        class="inline-flex items-center gap-3 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-xl text-lg uppercase tracking-wide shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5"
+      >
+        <span>Profissionalizar Minha Comunicação Agora</span>
+        <ArrowRight class="w-5 h-5" />
+      </a>
+    </div>
+  </div>
+</section>

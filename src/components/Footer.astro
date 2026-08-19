@@ -1,0 +1,122 @@
+---
+import { Shield, Sparkles, Lock } from "@lucide/astro";
+import Logo from "./Logo.astro";
+
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { name: "Problema", href: "#problema" },
+  { name: "Módulos", href: "#modulos" },
+  { name: "Modo SPY", href: "#spy" },
+  { name: "Para Quem É", href: "#publico" },
+  { name: "Oferta", href: "#oferta" },
+  { name: "Comparativo", href: "#comparativo" },
+];
+
+const legalLinks = [
+  { name: "Termos de Uso", href: "/termos" },
+  { name: "Política de Privacidade", href: "/privacidade" },
+  { name: "Suporte Hotmart", href: "https://help.hotmart.com" },
+];
+---
+
+<footer
+  class="bg-gray-950 text-gray-400 pt-16 pb-12 px-4 md:px-8 border-t border-gray-800"
+>
+  <div class="max-w-7xl mx-auto">
+    <!-- Grid Superior do Rodapé -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 pb-12 border-b border-gray-800"
+    >
+      <!-- Coluna 1: Marca e Resumo -->
+      <div class="md:col-span-2 space-y-4">
+        <Logo class="h-8 w-auto" />
+
+        <p class="text-sm text-gray-400 max-w-md leading-relaxed">
+          A plataforma de estruturação de conteúdo e inteligência tática para
+          pré-campanhas, mandatos e equipes de comunicação política nas Eleições
+          2026.
+        </p>
+
+        <div
+          class="flex items-center gap-2 text-xs text-[#0894B0] font-semibold bg-[#0894B0]/10 border border-[#0894B0]/20 px-3 py-1.5 rounded-lg w-fit"
+        >
+          <Lock class="w-3.5 h-3.5" />
+          <span>Pagamento Seguro via Hotmart</span>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Navegação Rápida -->
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">
+          Navegação
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="hover:text-[#0894B0] transition-colors"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Links Legais -->
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">
+          Legal e Suporte
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {
+            legalLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  class="hover:text-[#0894B0] transition-colors"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Isenção de Responsabilidade / Disclaimer -->
+    <div class="text-xs text-gray-500 space-y-3 mb-8 leading-relaxed">
+      <p>
+        <strong>Aviso Legal:</strong> Este site e o produto "Máquina de Conteúdo Eleitoral"
+        não possuem qualquer vínculo, associação, endosso ou patrocínio de plataformas
+        como Meta (Instagram, Facebook, WhatsApp), TikTok, Google, YouTube ou X (Twitter).
+      </p>
+      <p>
+        Os resultados e a performance da sua comunicação dependem do uso correto
+        da ferramenta, da disciplina de publicação da equipe e das
+        particularidades do seu cenário político local. O software fornece
+        estruturas de roteiros e análises táticas, cabendo ao usuário a
+        validação e adequação final às normas da legislação eleitoral vigente.
+      </p>
+    </div>
+
+    <!-- Direitos Autorais -->
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 pt-6 border-t border-gray-900"
+    >
+      <p>
+        © {currentYear} Máquina de Conteúdo Eleitoral. Todos os direitos reservados.
+      </p>
+      <div class="flex items-center gap-1 text-gray-400">
+        <Shield class="w-4 h-4 text-[#0894B0]" />
+        <span>Ambiente Criptografado & Protegido</span>
+      </div>
+    </div>
+  </div>
+</footer>

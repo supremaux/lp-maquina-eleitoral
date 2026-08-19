@@ -1,0 +1,65 @@
+---
+import { ShieldCheck, Zap } from "@lucide/astro";
+---
+
+<section
+  class="bg-[#182838] text-white pt-12 pb-20 px-4 md:px-8 border-b-4 border-[#F04820]"
+>
+  <div class="max-w-6xl mx-auto text-center">
+    <!-- Banner de Urgência -->
+    <div
+      class="inline-flex items-center gap-2 bg-[#F04820]/20 text-[#F04820] border border-[#F04820] px-4 py-1.5 rounded-full font-bold text-sm mb-6 animate-pulse"
+    >
+      <Zap class="w-4 h-4" />
+      <span>FALTAM MENOS DE 45 DIAS</span>
+    </div>
+
+    <!-- H1 Headline -->
+    <h1
+      class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight mb-6"
+    >
+      E você ainda perde tempo pensando no que postar? <span
+        class="text-[#0894B0]">A campanha já começou.</span
+      >
+    </h1>
+
+    <p
+      class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-normal"
+    >
+      A Máquina de Conteúdo Eleitoral transforma pautas, propostas, agenda e
+      posicionamentos em conteúdos estratégicos para Reels, Carrosséis, Stories
+      e Discursos.
+    </p>
+
+    <!-- Visual Mockup com Lazy Loading Otimizado -->
+    <div
+      class="relative max-w-3xl mx-auto mb-10 shadow-2xl rounded-xl overflow-hidden border-2 border-[#0894B0]/40"
+    >
+      <img
+        src="/mockup.avif"
+        alt="Mockup da Máquina de Conteúdo Eleitoral"
+        width="1200"
+        height="675"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-auto object-cover"
+      />
+    </div>
+
+    <!-- Call To Action Principal -->
+    <div class="flex flex-col items-center gap-3">
+      <a
+        href="https://pay.hotmart.com/SEU_LINK_AQUI"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto px-8 py-5 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold text-xl rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-center uppercase tracking-wide"
+      >
+        QUERO ATIVAR MINHA MÁQUINA
+      </a>
+      <span class="text-sm text-gray-400 flex items-center gap-1">
+        <ShieldCheck class="w-4 h-4 text-[#70C0D8]" /> R$ 97 por mês. Cancele quando
+        quiser.
+      </span>
+    </div>
+  </div>
+</section>

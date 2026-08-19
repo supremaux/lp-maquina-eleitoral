@@ -1,0 +1,30 @@
+---
+interface Props {
+  className?: string;
+  loading?: "lazy" | "eager";
+  decoding?: "async" | "sync";
+  priority?: "auto" | "high" | "low";
+  class?: string;
+}
+
+const {
+  className,
+  loading: loadingFromProps,
+  priority: priorityFromProps,
+} = Astro.props;
+
+const loading = loadingFromProps || "lazy";
+const priority = priorityFromProps || "low";
+const decoding = loading === "eager" ? "sync" : "async";
+---
+
+<img
+  src="/Logo_Maquina_Invertida.svg"
+  alt="Suprema Logo"
+  class="h-8 w-auto"
+  width="120"
+  height="32"
+  loading={loading}
+  decoding={decoding || "async"}
+  fetchpriority={priority}
+/>
