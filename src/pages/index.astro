@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import ProblemSection from "../components/ProblemSection.astro";
 import FeaturesSection from "../components/FeaturesSection.astro";
@@ -9,20 +8,32 @@ import TargetAudience from "../components/TargetAudience.astro";
 import OfferSection from "../components/OfferSection.astro";
 import ChoiceSection from "../components/ChoiceSection.astro";
 import Footer from "../components/Footer.astro";
-import CookieBanner from "../components/CookieBanner";
 ---
 
-<Layout title="Máquina de Conteúdo Eleitoral - Transforme Pautas em Votos">
-  <Header />
-  <main>
+<Layout title="Máquina de Conteúdo Eleitoral - Transforme pautas em votos">
+  <main class="bg-[#182838] min-h-screen">
+    <!-- 1. Hero: Contador regressivo, H1 de urgência, Subhead e CTA principal -->
     <Hero />
+
+    <!-- 2. ProblemSection: Conscientização de volume, dor da equipe e proposta clara -->
     <ProblemSection />
+
+    <!-- 3. FeaturesSection: Módulos (Reels, Carrossel, Stories e Discursos) -->
     <FeaturesSection />
+
+    <!-- 4. SpySection: Módulo SPY de engenharia reversa política -->
     <SpySection />
+
+    <!-- 5. TargetAudience: Qualificação de público ("Para quem é") -->
     <TargetAudience />
+
+    <!-- 6. OfferSection: Ancoragem de urgência (calendário) e Card de R$ 97/mês -->
     <OfferSection />
+
+    <!-- 7. ChoiceSection: As duas escolhas, fechamento de urgência e CTA final -->
     <ChoiceSection />
   </main>
+
+  <!-- Rodapé com links e avisos legais -->
   <Footer />
-  <CookieBanner client:idle />
 </Layout>

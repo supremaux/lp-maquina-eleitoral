@@ -1,111 +1,212 @@
 ---
-import { Clock, Flame, AlertTriangle, CheckCircle2 } from "@lucide/astro";
-
-const problems = [
-  {
-    icon: Clock,
-    title: "Horas perdidas em reuniões sem fim",
-    description:
-      "Sua equipe passa horas discutindo o que publicar hoje, enquanto concorrentes postam matérias e posicionamentos em tempo real.",
-  },
-  {
-    icon: Flame,
-    title: "Apagando incêndios e sem estratégia",
-    description:
-      "A rotina do mandato ou da pré-campanha consome o tempo, fazendo o conteúdo ser feito de última hora e sem conexão com o eleitorado.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Conteúdo genérico que ninguém engaja",
-    description:
-      "Postar apenas fotos de eventos e textos institucionais longos faz a audiência ignorar suas pautas e propostas na timeline.",
-  },
-];
-
-const solutions = [
-  "Roteiros e ganchos de alta retenção prontos em 2 minutos",
-  "Transformação imediata de pautas reais em Reels, Carrosséis e Stories",
-  "Estrutura padronizada com prova, causa e consequência para gerar autoridade",
-];
+import { Zap } from "@lucide/astro";
 ---
 
 <section
-  id="problema"
   class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20"
 >
-  <div class="max-w-6xl mx-auto">
-    <!-- Cabeçalho da Seção -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span
-        class="text-[#F04820] font-extrabold text-xl uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
-      >
-        O Gargalo das Campanhas
-      </span>
+  <div class="max-w-4xl mx-auto space-y-20">
+    <!-- Bloco 1 -->
+    <div class="text-center space-y-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span
+          class="text-[#F04820] font-extrabold text-xl uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
+        >
+          O Gargalo das Campanhas
+        </span>
+      </div>
       <h2
-        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+        class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase"
       >
-        A comunicação política tradicional <span class="text-[#0894B0]"
-          >está queimando o seu tempo</span
-        > e os seus votos.
+        AGORA É HORA DE FAZER VOLUME.
       </h2>
-      <p class="text-gray-300 text-lg md:text-xl font-normal">
-        Sem um fluxo claro de produção, a comunicação digital vira um fardo
-        diário em vez de ser o motor da sua pré-campanha.
-      </p>
-    </div>
-
-    <!-- Cards de Problemas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      {
-        problems.map((item) => {
-          const IconComponent = item.icon;
-          return (
-            <div class="bg-gray-900/60 border border-gray-800 hover:border-[#F04820]/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 group">
-              <div class="w-14 h-14 rounded-xl bg-[#F04820]/10 border border-[#F04820]/30 flex items-center justify-center text-[#F04820] mb-6 group-hover:scale-110 transition-transform">
-                <IconComponent class="w-7 h-7" />
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">{item.title}</h3>
-              <p class="text-gray-400 text-base leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          );
-        })
-      }
-    </div>
-
-    <!-- Bloco de Virada / Solução -->
-    <div
-      class="bg-gradient-to-r from-[#0894B0]/20 via-gray-900 to-[#0894B0]/20 border border-[#0894B0]/40 rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8"
-    >
-      <div class="max-w-2xl">
-        <h3 class="text-2xl md:text-3xl font-black text-white mb-4">
-          Existe um jeito mais rápido e profissional de liderar a narrativa.
-        </h3>
-        <p class="text-gray-300 text-base mb-6">
-          A Máquina de Conteúdo Eleitoral automatiza a estruturação da mensagem,
-          garantindo que qualquer fato do dia se torne uma peça eleitoral
-          completa:
+      <div
+        class="space-y-4 text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+      >
+        <p>
+          A campanha entrou na fase em que quem desaparece da tela também
+          desaparece da cabeça do eleitor.
         </p>
-        <ul class="space-y-3 text-left">
-          {
-            solutions.map((sol) => (
-              <li class="flex items-start gap-3 text-gray-200">
-                <CheckCircle2 class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
-                <span class="font-medium">{sol}</span>
-              </li>
-            ))
-          }
+        <p>Enquanto você pensa no que postar, seu adversário publica.</p>
+        <p>Enquanto sua equipe tenta montar um roteiro, ele grava.</p>
+        <p class="font-bold text-[#70C0D8] text-xl md:text-2xl pt-2">
+          A disputa pelo voto também acontece na tela do celular.
+        </p>
+      </div>
+      <div>
+        <a
+          href="#oferta"
+          class="inline-flex items-center gap-2 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-lg text-lg uppercase shadow-lg transition-transform hover:-translate-y-0.5"
+        >
+          <Zap class="w-5 h-5 fill-current" />
+          <span>QUERO PRODUZIR MAIS</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bloco 2 -->
+    <div
+      class="bg-gray-900/80 border border-gray-800 rounded-3xl p-8 md:p-12 space-y-6"
+    >
+      <h2
+        class="text-2xl md:text-4xl font-black text-[#F04820] uppercase text-center md:text-left"
+      >
+        SEU ADVERSÁRIO ESTÁ PRODUZINDO MAIS QUE VOCÊ?
+      </h2>
+      <p class="text-xl font-bold text-white text-center md:text-left">
+        Então existe um problema.
+      </p>
+
+      <div class="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
+        <p>Campanha eleitoral é presença, repetição e volume.</p>
+        <p>Não basta aparecer uma vez.</p>
+        <p>Não basta publicar quando sobra tempo.</p>
+        <p>
+          Não basta colocar uma foto de reunião e escrever: <em
+            >"Seguimos firmes."</em
+          >
+        </p>
+      </div>
+
+      <div class="pt-4 border-t border-gray-800">
+        <p class="font-bold text-white mb-4 text-lg">
+          Você precisa transformar:
+        </p>
+        <ul
+          class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[#70C0D8] font-semibold text-lg"
+        >
+          <li class="flex items-center gap-2">
+            <span class="text-[#F04820]">•</span> Proposta em conteúdo.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#F04820]">•</span> Rua em conteúdo.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#F04820]">•</span> Reunião em conteúdo.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#F04820]">•</span> Problema em conteúdo.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#F04820]">•</span> Posicionamento em conteúdo.
+          </li>
         </ul>
       </div>
 
-      <!-- CTA Secundário de Seção -->
-      <div class="flex-shrink-0 w-full md:w-auto">
+      <p
+        class="font-bold text-white text-lg md:text-xl pt-2 text-center md:text-left"
+      >
+        A campanha já está acontecendo. Seu conteúdo precisa acompanhar.
+      </p>
+
+      <div class="text-center md:text-left pt-4">
         <a
           href="#oferta"
-          class="inline-block w-full md:w-auto text-center px-8 py-4 bg-[#0894B0] hover:bg-[#067389] text-white font-extrabold text-lg rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 uppercase tracking-wide"
+          class="inline-block bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-lg text-lg uppercase shadow-lg transition-transform hover:-translate-y-0.5"
         >
-          Mudar Minha Rotina Agora
+          QUERO ATIVAR MINHA MÁQUINA
+        </a>
+      </div>
+    </div>
+
+    <!-- Bloco 3 -->
+    <div class="space-y-6 text-center md:text-left max-w-3xl mx-auto">
+      <h2
+        class="text-2xl md:text-4xl font-black text-white uppercase leading-tight"
+      >
+        SUA EQUIPE NÃO PODE PERDER UMA HORA PENSANDO NO PRÓXIMO POST.
+      </h2>
+      <p class="text-[#70C0D8] font-bold text-lg md:text-xl">
+        Principalmente quando a "equipe" é uma pessoa.
+      </p>
+      <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+        O assessor acompanha o candidato, filma, fotografa, edita, posta,
+        resolve problema, organiza agenda, responde mensagem.
+      </p>
+      <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+        Tudo ao mesmo tempo, e ainda escuta: <span
+          class="text-white font-bold italic">"O que vamos postar hoje?"</span
+        >
+      </p>
+      <div class="space-y-3 pt-2">
+        <p class="text-white font-bold text-xl">É aqui que a Máquina entra.</p>
+        <p class="text-gray-300 text-base md:text-lg">
+          Você coloca as informações da campanha.
+        </p>
+        <p class="text-gray-300 text-base md:text-lg">
+          Ela ajuda a transformar isso em direção para o conteúdo.
+        </p>
+        <p class="text-[#0894B0] font-bold text-lg md:text-xl">
+          Menos tempo enlouquecendo na campanha.
+        </p>
+        <p class="text-[#0894B0] font-bold text-lg md:text-xl">
+          Mais tempo produzindo de forma inteligente.
+        </p>
+      </div>
+
+      <div class="pt-6 text-center">
+        <a
+          href="#oferta"
+          class="inline-block bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-lg text-lg uppercase shadow-lg transition-transform hover:-translate-y-0.5"
+        >
+          A MÁQUINA VAI TRABALHAR POR VOCÊ
+        </a>
+      </div>
+    </div>
+
+    <!-- Bloco 4 -->
+    <div
+      class="bg-[#0894B0]/10 border border-[#0894B0]/30 rounded-3xl p-8 md:p-12 space-y-6 text-center"
+    >
+      <h2
+        class="text-2xl md:text-4xl font-black text-white uppercase leading-tight"
+      >
+        SUA PROPOSTA PODE SER EXCELENTE. <br />
+        <span class="text-[#F04820]"
+          >SE O ELEITOR NÃO ENTENDER, ELA MORRE NO SANTINHO.</span
+        >
+      </h2>
+
+      <div class="space-y-2 text-gray-300 text-base md:text-lg">
+        <p>O candidato conhece a proposta.</p>
+        <p>A equipe conhece a proposta.</p>
+        <p>O plano de governo explica a proposta.</p>
+      </div>
+
+      <p class="text-white font-bold text-lg md:text-xl">
+        Mas o eleitor não lê política como quem lê um documento técnico.
+      </p>
+
+      <div
+        class="bg-gray-900/60 p-6 rounded-xl max-w-xl mx-auto space-y-2 text-left text-gray-200 font-medium"
+      >
+        <p class="text-[#70C0D8] font-bold mb-2">
+          Ele precisa entender rápido:
+        </p>
+        <p>• Qual é o problema?</p>
+        <p>• O que você pretende fazer?</p>
+        <p>• Por que isso importa para a vida dele?</p>
+      </div>
+
+      <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+        A Máquina ajuda a pegar uma ideia complicada e organizar uma comunicação
+        mais clara, direta e compreensível.
+      </p>
+
+      <div class="space-y-2 pt-2 text-xl font-black">
+        <p class="text-white">Porque ter proposta é importante.</p>
+        <p class="text-[#0894B0]">Saber comunicá-la é indispensável.</p>
+        <p class="text-[#F04820] text-2xl pt-4">
+          CAMPANHA ELEITORAL NÃO É PANFLETAGEM DIGITAL.
+        </p>
+      </div>
+
+      <div class="pt-6">
+        <a
+          href="#oferta"
+          class="inline-block bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-lg text-lg uppercase shadow-lg transition-transform hover:-translate-y-0.5"
+        >
+          QUERO ATIVAR MINHA MÁQUINA
         </a>
       </div>
     </div>

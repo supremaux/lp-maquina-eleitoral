@@ -1,120 +1,95 @@
 ---
 import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
-
-const monthlyPlan = {
-  name: "Plano Mensal",
-  badge: "ACESSO IMEDIATO",
-  price: "97",
-  period: "/mês",
-  description:
-    "Acesso completo à plataforma para estruturar a comunicação da sua pré-campanha.",
-  features: [
-    "Acesso completo aos 6 Módulos de Formato",
-    "Geração ilimitada de Roteiros, Carrosséis e Stories",
-    "Módulo SPY (Investigação de Perfis e Materiais)",
-    "Roteiros para Discursos e Disparos de WhatsApp",
-    "Suporte prioritário e atualizações de pautas",
-    "Sem fidelidade (cancele a qualquer momento)",
-  ],
-  ctaText: "Garantir Acesso Agora",
-  checkoutUrl: "https://pay.kiwify.com/SEU_LINK_AQUI", // Substitua pelo link real da Kiwify
-};
 ---
 
 <section
   id="oferta"
   class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20 relative"
 >
-  <div class="max-w-6xl mx-auto">
-    <!-- Header da Seção -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
+  <div class="max-w-5xl mx-auto space-y-16">
+    <!-- Bloco O CALENDÁRIO NÃO NEGOCIA -->
+    <div class="text-center space-y-6 max-w-3xl mx-auto">
       <span
-        class="text-[#F04820] font-extrabold text-lg uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
+        class="text-[#F04820] font-extrabold text-lg uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-6"
       >
         Invista na Sua Comunicação
       </span>
       <h2
-        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+        class="text-3xl md:text-5xl font-black text-[#F04820] uppercase tracking-tight"
       >
-        Acelere a sua <span class="text-[#0894B0]">pré-campanha</span> hoje mesmo.
+        O CALENDÁRIO NÃO NEGOCIA.
       </h2>
-      <p class="text-gray-300 text-lg md:text-xl font-normal">
-        Acesse imediatamente a plataforma e transforme a rotina da sua equipe
-        digital sem contratos de fidelidade.
-      </p>
+      <div class="space-y-2 text-gray-300 text-lg md:text-xl">
+        <p>Cada manhã que passa é uma manhã a menos.</p>
+        <p>Cada noite que termina é uma noite a menos.</p>
+        <p class="text-white font-medium pt-2">
+          E toda pauta que você deixa passar hoje dificilmente terá o mesmo
+          valor daqui a uma semana.
+        </p>
+      </div>
+
+      <div class="pt-4 space-y-2">
+        <h3 class="text-xl md:text-3xl font-black text-white uppercase">
+          SUA EQUIPE NÃO PRECISA DE MAIS HORAS.
+        </h3>
+        <p class="text-2xl md:text-3xl font-black text-[#0894B0] uppercase">
+          PRECISA FAZER AS HORAS QUE TEM RENDEREM MAIS.
+        </p>
+      </div>
     </div>
 
-    <!-- Grid principal: Card de Oferta + Imagem -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
-      <!-- CARD PLANO MENSAL (DESTAQUE VIBRANTE) -->
+    <!-- Oferta Principal -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <!-- Card R$ 97 -->
       <div
-        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 md:p-10 flex flex-col justify-between relative shadow-2xl"
+        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-2xl space-y-6"
       >
-        <!-- Badge Superior -->
-        <div class="flex items-center justify-between mb-6">
-          <span
-            class="text-xs font-black text-[#70C0D8] bg-[#0894B0]/20 px-3.5 py-1.5 rounded-md uppercase tracking-wider border border-[#0894B0]/30 flex items-center gap-1.5"
-          >
-            <Zap class="w-4 h-4 fill-current text-[#0894B0]" />
-            {monthlyPlan.badge}
-          </span>
-          <span
-            class="text-xs text-gray-400 font-bold uppercase tracking-wider"
-          >
-            Sem Fidelidade
-          </span>
-        </div>
-
         <div>
-          <h3 class="text-3xl font-black text-white mb-2">
-            {monthlyPlan.name}
+          <span
+            class="text-xs font-black text-[#70C0D8] bg-[#0894B0]/20 px-3.5 py-1.5 rounded-md uppercase tracking-wider border border-[#0894B0]/30 inline-block mb-4"
+          >
+            ACESSO IMEDIATO
+          </span>
+          <h3 class="text-2xl md:text-3xl font-black text-white">
+            A Máquina de Conteúdo Eleitoral custa:
           </h3>
-          <p class="text-gray-300 text-sm mb-6">{monthlyPlan.description}</p>
 
-          <!-- Bloco de Preço Destaque -->
-          <div class="mb-8 pb-6 border-b border-gray-800">
+          <div class="my-6 pb-6 border-b border-gray-800">
             <div class="flex items-baseline gap-1">
               <span class="text-gray-400 text-2xl font-bold">R$</span>
               <span class="text-6xl font-black text-white tracking-tight"
-                >{monthlyPlan.price}</span
+                >97</span
               >
-              <span class="text-gray-400 font-bold text-lg"
-                >{monthlyPlan.period}</span
-              >
+              <span class="text-gray-400 font-bold text-lg">por mês</span>
             </div>
-            <p class="text-xs text-[#70C0D8] font-medium mt-2">
-              Cobrança mensal recorrente. Cancele quando quiser.
+            <p class="text-sm text-[#70C0D8] font-bold mt-2">
+              cancele quando quiser.
             </p>
           </div>
 
-          <!-- Lista de Recursos -->
-          <ul class="space-y-4 mb-8">
-            {
-              monthlyPlan.features.map((feature) => (
-                <li class="flex items-start gap-3 text-sm md:text-base text-gray-200">
-                  <Check class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
-                  <span class="font-medium">{feature}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <p class="text-gray-300 text-base leading-relaxed">
+            Por R$ 97, você coloca uma ferramenta ao lado da sua campanha para
+            ajudar a transformar informação em conteúdo, organizar mensagens e
+            acelerar uma das tarefas que mais consomem tempo durante uma
+            eleição: <strong class="text-white"
+              >decidir o que dizer e como dizer.</strong
+            >
+          </p>
         </div>
 
-        <!-- Botão CTA -->
         <div>
           <a
-            href={monthlyPlan.checkoutUrl}
+            href="https://pay.hotmart.com/SEU_LINK_AQUI"
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full text-center py-4 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-lg flex items-center justify-center gap-2"
+            class="block w-full text-center py-5 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-xl"
           >
-            <span>{monthlyPlan.ctaText}</span>
-            <ArrowRight class="w-5 h-5" />
+            QUERO ACESSAR A MÁQUINA
           </a>
         </div>
       </div>
 
-      <!-- ILUSTRAÇÃO DA URNA ELEITORAL -->
+      <!-- Urna / Imagem -->
       <div class="relative flex items-center justify-center p-4">
         <div
           class="absolute inset-0 bg-[#0894B0]/10 rounded-3xl filter blur-3xl -z-10"
@@ -122,43 +97,10 @@ const monthlyPlan = {
         </div>
         <img
           src="/urnaEleitoral.avif"
-          alt="Urna Eleitoral - Máquina de Conteúdo Eleitoral"
-          class="w-full max-w-md lg:max-w-full h-auto object-contain rounded-2xl drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+          alt="Urna Eleitoral"
+          class="w-full max-w-md h-auto object-contain rounded-2xl drop-shadow-2xl"
           loading="lazy"
-          decoding="async"
         />
-      </div>
-    </div>
-
-    <!-- Bloco de Garantia Kiwify -->
-    <div
-      class="bg-gray-900/90 border border-gray-800 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 shadow-xl"
-    >
-      <div
-        class="w-20 h-20 rounded-2xl bg-[#0894B0]/15 border border-[#0894B0]/40 flex items-center justify-center text-[#0894B0] flex-shrink-0"
-      >
-        <ShieldCheck class="w-10 h-10" />
-      </div>
-
-      <div class="text-center md:text-left">
-        <div
-          class="flex items-center justify-center md:justify-start gap-2 mb-2"
-        >
-          <Lock class="w-4 h-4 text-[#0894B0]" />
-          <span
-            class="text-xs font-bold text-[#0894B0] uppercase tracking-wider"
-            >COMPRA 100% SEGURA VIA KIWIFY</span
-          >
-        </div>
-        <h3 class="text-2xl font-bold text-white mb-2">
-          Garantia Incondicional de 7 Dias
-        </h3>
-        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-          Assine a Máquina de Conteúdo Eleitoral e teste na prática com a sua
-          equipe. Se dentro de 7 dias você entender que a ferramenta não
-          otimizou a sua rotina, solicite o reembolso na Kiwify com apenas 1
-          clique.
-        </p>
       </div>
     </div>
   </div>

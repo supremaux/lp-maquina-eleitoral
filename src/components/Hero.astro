@@ -10,39 +10,39 @@ import { ShieldCheck, Zap } from "@lucide/astro";
     class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center"
   >
     <div
-      class="flex items-center gap-2 text-[#F04820] font-black text-xs sm:text-sm uppercase tracking-widest animate-pulse"
+      class="flex items-center gap-2 text-[#F04820] font-black text-lg sm:text-sm uppercase tracking-widest animate-pulse"
     >
-      <Zap class="w-6 h-6 fill-current shrink-0" />
-      <span class="text-3xl">ELEIÇÕES 2026 EM:</span>
+      <Zap class="w-5 h-5 fill-current shrink-0" />
+      <span>FALTAM MENOS DE 45 DIAS:</span>
     </div>
 
     <!-- Digitos Regressivos -->
     <div
-      class="flex items-center gap-1.5 font-mono text-white text-lg font-black"
+      class="flex items-center gap-1.5 font-mono text-white text-base sm:text-lg font-black"
     >
       <div
-        class="bg-[#F04820]/20 border border-[#F04820]/50 px-2 py-0.5 rounded text-[#F04820]"
+        class="bg-[#F04820]/20 border border-[#F04820]/50 px-2.5 py-0.5 rounded text-[#F04820]"
       >
         <span id="countdown-days">00</span><span
-          class="text-[12px] ml-0.5 font-sans text-gray-300">D</span
+          class="text-[11px] ml-0.5 font-sans text-gray-300">D</span
         >
       </div>
       <span>:</span>
       <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
         <span id="countdown-hours">00</span><span
-          class="text-[12px] ml-0.5 font-sans text-gray-400">H</span
+          class="text-[11px] ml-0.5 font-sans text-gray-400">H</span
         >
       </div>
       <span>:</span>
       <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
         <span id="countdown-minutes">00</span><span
-          class="text-[12px] ml-0.5 font-sans text-gray-400">M</span
+          class="text-[11px] ml-0.5 font-sans text-gray-400">M</span
         >
       </div>
       <span>:</span>
       <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
         <span id="countdown-seconds" class="text-[#70C0D8]">00</span><span
-          class="text-[12px] ml-0.5 font-sans text-gray-400">S</span
+          class="text-[11px] ml-0.5 font-sans text-gray-400">S</span
         >
       </div>
     </div>
@@ -52,27 +52,56 @@ import { ShieldCheck, Zap } from "@lucide/astro";
 <section
   class="bg-[#182838] text-white pt-10 pb-20 px-4 md:px-8 border-b-4 border-[#F04820]"
 >
-  <div class="max-w-6xl mx-auto text-center">
+  <div class="max-w-4xl mx-auto text-center">
     <!-- H1 Headline -->
     <h1
-      class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight mb-6"
+      class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4"
     >
-      E você ainda perde tempo pensando no que postar? <span
-        class="text-[#F04820]">A campanha já começou.</span
-      >
+      E você ainda perde tempo pensando no que postar? <br
+        class="hidden sm:inline"
+      />
+      <span class="text-[#F04820]">A campanha já começou.</span>
     </h1>
 
-    <p
-      class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-normal"
-    >
-      A Máquina de Conteúdo Eleitoral transforma pautas, propostas, agenda e
-      posicionamentos em conteúdos estratégicos para Reels, Carrosséis, Stories
-      e Discursos.
+    <p class="text-xl md:text-2xl font-bold text-[#70C0D8] mb-6">
+      O relógio está correndo.
     </p>
 
-    <!-- Visual Mockup com Lazy Loading Otimizado -->
     <div
-      class="relative max-w-3xl mx-auto mb-10 shadow-2xl rounded-xl overflow-hidden border-2 border-[#0894B0]/40"
+      class="space-y-4 text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
+    >
+      <p>
+        Na campanha, postar qualquer coisa não basta. Enquanto você publica por
+        obrigação, seu adversário publica com volume, estratégia, e intenção de
+        ganhar voto.
+      </p>
+      <p>
+        A Máquina de Conteúdo Eleitoral transforma pautas, propostas, agenda,
+        posicionamentos e acontecimentos da campanha em conteúdo para Reels,
+        Carrosséis, Stories e discursos.
+      </p>
+      <p class="font-bold text-white text-lg md:text-2xl pt-2">
+        Você coloca a informação. A Máquina organiza a comunicação.
+      </p>
+    </div>
+
+    <!-- Call To Action Principal -->
+    <div class="flex flex-col items-center gap-3 mb-12">
+      <a
+        href="#oferta"
+        class="w-full sm:w-auto px-8 py-5 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold text-xl rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-center uppercase tracking-wide"
+      >
+        QUERO ATIVAR MINHA MÁQUINA
+      </a>
+      <span class="text-sm text-gray-400 flex items-center gap-1">
+        <ShieldCheck class="w-4 h-4 text-[#70C0D8]" /> R$ 97 por mês. Cancele quando
+        quiser.
+      </span>
+    </div>
+
+    <!-- Visual Mockup -->
+    <div
+      class="relative max-w-3xl mx-auto shadow-2xl rounded-xl overflow-hidden border-2 border-[#0894B0]/40"
     >
       <img
         src="/mockup.avif"
@@ -84,35 +113,16 @@ import { ShieldCheck, Zap } from "@lucide/astro";
         class="w-full h-auto object-cover"
       />
     </div>
-
-    <!-- Call To Action Principal -->
-    <div class="flex flex-col items-center gap-3">
-      <a
-        href="https://pay.hotmart.com/SEU_LINK_AQUI"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full sm:w-auto px-8 py-5 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold text-xl rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-center uppercase tracking-wide"
-      >
-        QUERO ATIVAR MINHA MÁQUINA
-      </a>
-      <span class="text-sm text-gray-400 flex items-center gap-1">
-        <ShieldCheck class="w-4 h-4 text-[#70C0D8]" /> R$ 97 por mês. Cancele quando
-        quiser.
-      </span>
-    </div>
   </div>
 </section>
 
-<!-- Script para atualização do contador regressivo em tempo real -->
 <script is:inline>
   function updateCountdown() {
     const targetDate = new Date("2026-10-04T00:00:00Z").getTime();
     const now = new Date().getTime();
     const timeDiff = targetDate - now;
 
-    if (timeDiff <= 0) {
-      return;
-    }
+    if (timeDiff <= 0) return;
 
     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     const hours = Math.floor(

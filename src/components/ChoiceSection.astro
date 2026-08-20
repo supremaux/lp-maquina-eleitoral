@@ -1,153 +1,105 @@
 ---
-import {
-  XCircle,
-  CheckCircle,
-  ArrowRight,
-  TrendingUp,
-  AlertOctagon,
-} from "@lucide/astro";
-
-const amateurWay = [
-  "Horas de reunião diária para decidir 'o que postar hoje'",
-  "Dependência total do improviso do candidato",
-  "Posts genéricos com baixa retenção e visual amador",
-  "Sensação constante de estar apagando incêndios na pré-campanha",
-  "Perda de votos para concorrentes com comunicação mais ágil",
-];
-
-const machineWay = [
-  "Roteiros e pautas da semana estruturados em 2 minutos",
-  "Linha editorial clara com tom de voz e causa definidos",
-  "Formatos de alta retenção (Reels, Carrosséis e Stories)",
-  "Equipe alinhada e produzindo conteúdo com padrão profissional",
-  "Domínio da narrativa local e autoridade perante o eleitorado",
-];
+import { Zap } from "@lucide/astro";
 ---
 
 <section
-  id="comparativo"
-  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20"
+  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b-4 border-[#F04820]"
 >
-  <div class="max-w-6xl mx-auto">
-    <!-- Header da Seção -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
+  <div class="max-w-4xl mx-auto space-y-12">
+    <div class="text-center">
       <span
         class="text-[#F04820] font-extrabold text-xl uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-4"
       >
         A Decisão Tática
       </span>
       <h2
-        class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6"
+        class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight"
       >
-        Nas eleições 2026, o <span class="text-[#F04820]">amadorismo</span> custa
-        muito caro.
+        VOCÊ TEM DUAS ESCOLHAS.
       </h2>
-      <p class="text-gray-300 text-lg md:text-xl font-normal">
-        Compare os dois caminhos possíveis para a comunicação do seu mandato ou
-        pré-campanha:
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Escolha 1 -->
+      <div
+        class="bg-gray-900/60 border border-red-900/40 rounded-2xl p-8 space-y-4"
+      >
+        <span
+          class="text-red-500 font-bold text-sm uppercase tracking-wider block"
+          >OPÇÃO 1</span
+        >
+        <p class="text-gray-300 text-base leading-relaxed">
+          Continuar abrindo o grupo da equipe e perguntando: <br />
+          <strong class="text-white italic">"O que vamos postar hoje?"</strong>
+        </p>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li>• Procurar uma foto.</li>
+          <li>• Improvisar uma legenda.</li>
+          <li>• Postar agenda.</li>
+          <li>• Esperar outra ideia aparecer.</li>
+          <li>• E repetir tudo amanhã.</li>
+        </ul>
+      </div>
+
+      <!-- Escolha 2 -->
+      <div
+        class="bg-gradient-to-b from-[#0894B0]/20 to-gray-900 border border-[#0894B0] rounded-2xl p-8 space-y-4"
+      >
+        <span
+          class="text-[#0894B0] font-bold text-sm uppercase tracking-wider block"
+          >OPÇÃO 2</span
+        >
+        <p class="text-white font-bold text-lg leading-relaxed">
+          Ou transformar aquilo que já acontece na sua campanha em matéria-prima
+          para comunicação.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center space-y-6 max-w-3xl mx-auto pt-6">
+      <p class="text-gray-300 text-lg md:text-xl">
+        O campo de batalha pelo voto já está aberto.
       </p>
-    </div>
-
-    <!-- Tabela Comparativa (Grid de 2 Colunas) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-      <!-- CAMINHO AMADOR -->
       <div
-        class="bg-gray-900/60 border border-red-900/40 rounded-2xl p-8 relative flex flex-col justify-between"
+        class="flex flex-wrap items-center justify-center gap-4 text-white font-bold text-xl"
       >
-        <div>
-          <div
-            class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800"
-          >
-            <div
-              class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500"
-            >
-              <AlertOctagon class="w-5 h-5" />
-            </div>
-            <div>
-              <span
-                class="text-xs font-bold text-red-400 uppercase tracking-wider block"
-                >O Caminho Atual</span
-              >
-              <h3 class="text-xl font-black text-white">Comunicação Amadora</h3>
-            </div>
-          </div>
-
-          <ul class="space-y-4 mb-8">
-            {
-              amateurWay.map((item) => (
-                <li class="flex items-start gap-3 text-sm text-gray-400">
-                  <XCircle class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div
-          class="p-4 rounded-xl bg-red-950/30 border border-red-900/30 text-center"
-        >
-          <span class="text-xs font-bold text-red-300"
-            >Resultado: Desperdício de tempo e perda de engajamento</span
-          >
-        </div>
+        <span>Seu adversário está falando.</span>
+        <span class="text-[#F04820]">•</span>
+        <span>Está publicando.</span>
+        <span class="text-[#F04820]">•</span>
+        <span>Está aparecendo.</span>
       </div>
 
-      <!-- CAMINHO DA MÁQUINA (DESTAQUE) -->
+      <p class="text-gray-300 text-base md:text-lg">
+        Você não precisa de uma equipe gigante para entrar nessa disputa.
+      </p>
+
       <div
-        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-2xl p-8 relative flex flex-col justify-between shadow-2xl"
+        class="flex items-center justify-center gap-3 text-2xl md:text-3xl font-black text-[#70C0D8]"
       >
-        <div>
-          <div
-            class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800"
-          >
-            <div
-              class="w-10 h-10 rounded-xl bg-[#0894B0]/20 border border-[#0894B0]/40 flex items-center justify-center text-[#0894B0]"
-            >
-              <TrendingUp class="w-5 h-5" />
-            </div>
-            <div>
-              <span
-                class="text-xs font-bold text-[#70C0D8] uppercase tracking-wider block"
-                >O Novo Padrão</span
-              >
-              <h3 class="text-xl font-black text-white">
-                Com a Máquina Eleitoral
-              </h3>
-            </div>
-          </div>
+        <span>Precisa de velocidade.</span>
+        <span>Direção.</span>
+        <span>Volume.</span>
+      </div>
 
-          <ul class="space-y-4 mb-8">
-            {
-              machineWay.map((item) => (
-                <li class="flex items-start gap-3 text-sm text-gray-200">
-                  <CheckCircle class="w-5 h-5 text-[#0894B0] flex-shrink-0 mt-0.5" />
-                  <span class="font-medium">{item}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div
-          class="p-4 rounded-xl bg-[#0894B0]/15 border border-[#0894B0]/30 text-center"
-        >
-          <span class="text-xs font-bold text-[#70C0D8]"
-            >Resultado: Rotina otimizada, autoridade e retenção real</span
+      <div class="pt-6 space-y-4">
+        <h3 class="text-3xl md:text-4xl font-black text-white uppercase">
+          A MÁQUINA JÁ ESTÁ PRONTA.
+        </h3>
+        <p class="text-xl text-gray-300">
+          R$ 97 por mês. Cancele quando quiser.
+        </p>
+        <div class="pt-4">
+          <a
+            href="https://pay.hotmart.com/SEU_LINK_AQUI"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-10 py-5 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold text-xl rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide"
           >
+            ATIVAR MINHA MÁQUINA AGORA
+          </a>
         </div>
       </div>
-    </div>
-
-    <!-- Chamada para Ação -->
-    <div class="text-center">
-      <a
-        href="#oferta"
-        class="inline-flex items-center gap-3 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold px-8 py-4 rounded-xl text-lg uppercase tracking-wide shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5"
-      >
-        <span>Profissionalizar Minha Comunicação Agora</span>
-        <ArrowRight class="w-8 h-8" />
-      </a>
     </div>
   </div>
 </section>
