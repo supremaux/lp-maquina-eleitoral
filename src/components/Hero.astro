@@ -1,26 +1,58 @@
 ---
 import { ShieldCheck, Zap } from "@lucide/astro";
-import type { any } from "astro:schema";
-
-// Counter de quantos dias faltam, da data atual, até 04 de outubro de 2026
-const targetDate = new Date("2026-10-04T00:00:00Z");
-const now = new Date();
-const timeDiff = targetDate.getTime() - now.getTime();
-const dias = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 ---
 
-<section
-  class="bg-[#182838] text-white pt-12 pb-20 px-4 md:px-8 border-b-4 border-[#F04820]"
+<!-- BARRA FIXA DO CONTADOR REGRESSIVO (STICKY) -->
+<div
+  class="sticky top-0 z-50 bg-[#182838]/95 backdrop-blur-md border-b-2 border-[#F04820] py-3 px-4 shadow-2xl"
 >
-  <div class="max-w-6xl mx-auto text-center">
-    <!-- Banner de Urgência -->
+  <div
+    class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center"
+  >
     <div
-      class="inline-flex items-center gap-2 bg-[#F04820]/20 text-[#F04820] border border-[#F04820] px-4 py-1.5 rounded-full font-bold text-sm mb-6 animate-pulse"
+      class="flex items-center gap-2 text-[#F04820] font-black text-xs sm:text-sm uppercase tracking-widest animate-pulse"
     >
-      <Zap class="w-4 h-4" />
-      <span>FALTAM MENOS DE {dias} DIAS</span>
+      <Zap class="w-6 h-6 fill-current shrink-0" />
+      <span class="text-3xl">ELEIÇÕES 2026 EM:</span>
     </div>
 
+    <!-- Digitos Regressivos -->
+    <div
+      class="flex items-center gap-1.5 font-mono text-white text-lg font-black"
+    >
+      <div
+        class="bg-[#F04820]/20 border border-[#F04820]/50 px-2 py-0.5 rounded text-[#F04820]"
+      >
+        <span id="countdown-days">00</span><span
+          class="text-[12px] ml-0.5 font-sans text-gray-300">D</span
+        >
+      </div>
+      <span>:</span>
+      <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
+        <span id="countdown-hours">00</span><span
+          class="text-[12px] ml-0.5 font-sans text-gray-400">H</span
+        >
+      </div>
+      <span>:</span>
+      <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
+        <span id="countdown-minutes">00</span><span
+          class="text-[12px] ml-0.5 font-sans text-gray-400">M</span
+        >
+      </div>
+      <span>:</span>
+      <div class="bg-gray-900 border border-gray-700 px-2 py-0.5 rounded">
+        <span id="countdown-seconds" class="text-[#70C0D8]">00</span><span
+          class="text-[12px] ml-0.5 font-sans text-gray-400">S</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section
+  class="bg-[#182838] text-white pt-10 pb-20 px-4 md:px-8 border-b-4 border-[#F04820]"
+>
+  <div class="max-w-6xl mx-auto text-center">
     <!-- H1 Headline -->
     <h1
       class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight mb-6"
@@ -70,3 +102,36 @@ const dias = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
     </div>
   </div>
 </section>
+
+<!-- Script para atualização do contador regressivo em tempo real -->
+<script is:inline>
+  function updateCountdown() {
+    const targetDate = new Date("2026-10-04T00:00:00Z").getTime();
+    const now = new Date().getTime();
+    const timeDiff = targetDate - now;
+
+    if (timeDiff <= 0) {
+      return;
+    }
+
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById("countdown-days");
+    const hoursEl = document.getElementById("countdown-hours");
+    const minutesEl = document.getElementById("countdown-minutes");
+    const secondsEl = document.getElementById("countdown-seconds");
+
+    if (daysEl) daysEl.innerText = String(days).padStart(2, "0");
+    if (hoursEl) hoursEl.innerText = String(hours).padStart(2, "0");
+    if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, "0");
+    if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
