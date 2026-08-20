@@ -10,13 +10,27 @@ const navLinks = [
   { name: "Modo SPY", href: "#spy" },
   { name: "Para Quem É", href: "#publico" },
   { name: "Oferta", href: "#oferta" },
-  { name: "Comparativo", href: "#comparativo" },
 ];
 
 const legalLinks = [
-  { name: "Termos de Uso", href: "/termos" },
-  { name: "Política de Privacidade", href: "/privacidade" },
-  { name: "Suporte Kiwify", href: "https://help.Kiwify.com" },
+  {
+    name: "Termos de Uso",
+    href: "/termos-de-uso", // ✅ Corrigido (sem o .astro)
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "Política de Privacidade",
+    href: "/politica-de-privacidade", // ✅ Corrigido (sem o .astro)
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "Suporte Kiwify",
+    href: "https://help.Kiwify.com",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
 ];
 ---
 
@@ -78,7 +92,8 @@ const legalLinks = [
               <li>
                 <a
                   href={link.href}
-                  target="_blank"
+                  target={link.target}
+                  rel={link.rel}
                   class="hover:text-[#0894B0] transition-colors"
                 >
                   {link.name}

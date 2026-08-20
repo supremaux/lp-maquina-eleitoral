@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { AlertTriangle, ArrowLeft } from "lucide-react";
+---
+
+<Layout title="Página Não Encontrada - 404">
+  <main class="bg-[#182838] min-h-screen text-white flex items-center justify-center px-4 py-20">
+    <div class="max-w-xl mx-auto text-center space-y-8">
+      
+      <!-- Ícone e Código -->
+      <div class="inline-flex items-center justify-center p-4 bg-[#F04820]/10 border border-[#F04820]/30 rounded-2xl text-[#F04820]">
+        <AlertTriangle class="w-16 h-16 animate-bounce" />
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-7xl font-black tracking-tight text-[#F04820]">
+          404
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-bold uppercase text-white">
+          Esta pauta não existe ou mudou de endereço.
+        </h2>
+        <p class="text-gray-300 text-base md:text-lg max-w-md mx-auto">
+          No meio de uma campanha, perder tempo procurando a página errada custa caro. Volte para o painel principal e mantenha a sua produção em alto nível.
+        </p>
+      </div>
+
+      <!-- Botão Voltar -->
+      <div class="pt-4">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0894B0] hover:bg-[#067389] text-white font-extrabold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide"
+        >
+          <ArrowLeft class="w-5 h-5" />
+          <span>Voltar para a Página Inicial</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>
