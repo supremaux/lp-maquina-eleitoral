@@ -1,25 +1,25 @@
 ---
-import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
+import { Zap } from "@lucide/astro";
 ---
 
 <section
   id="oferta"
-  class="bg-[#182838] text-white py-20 px-4 md:px-8 border-b border-[#0894B0]/20 relative"
+  class="bg-[#182838] text-white py-16 md:py-20 px-6 md:px-8 border-b border-[#0894B0]/20 relative"
 >
-  <div class="max-w-5xl mx-auto space-y-16">
+  <div class="max-w-5xl mx-auto space-y-12 md:space-y-16">
     <!-- Bloco O CALENDÁRIO NÃO NEGOCIA -->
     <div class="text-center space-y-6 max-w-3xl mx-auto">
       <span
-        class="text-[#F04820] font-extrabold text-lg uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-6"
+        class="text-[#F04820] font-extrabold text-xs md:text-lg uppercase tracking-widest bg-[#F04820]/10 px-4 py-1.5 rounded-full border border-[#F04820]/30 inline-block mb-2"
       >
         Invista na Sua Comunicação
       </span>
       <h2
-        class="text-3xl md:text-5xl font-black text-[#F04820] uppercase tracking-tight"
+        class="text-2xl md:text-5xl font-black text-[#F04820] uppercase tracking-tight leading-tight"
       >
         O CALENDÁRIO NÃO NEGOCIA.
       </h2>
-      <div class="space-y-2 text-gray-300 text-lg md:text-xl">
+      <div class="space-y-2 text-gray-300 text-base md:text-xl text-left sm:text-center leading-relaxed">
         <p>Cada manhã que passa é uma manhã a menos.</p>
         <p>Cada noite que termina é uma noite a menos.</p>
         <p class="text-white font-medium pt-2">
@@ -29,10 +29,10 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
       </div>
 
       <div class="pt-4 space-y-2">
-        <h3 class="text-xl md:text-3xl font-black text-white uppercase">
+        <h3 class="text-lg md:text-3xl font-black text-white uppercase leading-snug">
           SUA EQUIPE NÃO PRECISA DE MAIS HORAS.
         </h3>
-        <p class="text-2xl md:text-3xl font-black text-[#0894B0] uppercase">
+        <p class="text-xl md:text-3xl font-black text-[#0894B0] uppercase leading-snug">
           PRECISA FAZER AS HORAS QUE TEM RENDEREM MAIS.
         </p>
       </div>
@@ -42,7 +42,7 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <!-- Card R$ 97 -->
       <div
-        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-2xl space-y-6"
+        class="bg-gradient-to-b from-gray-900 via-[#182838] to-gray-900 border-2 border-[#0894B0] rounded-3xl p-6 md:p-10 flex flex-col justify-between shadow-2xl space-y-6"
       >
         <div>
           <span
@@ -50,24 +50,24 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
           >
             ACESSO IMEDIATO
           </span>
-          <h3 class="text-2xl md:text-3xl font-black text-white">
+          <h3 class="text-xl md:text-3xl font-black text-white text-left">
             A Máquina de Conteúdo Eleitoral custa:
           </h3>
 
-          <div class="my-6 pb-6 border-b border-gray-800">
+          <div class="my-6 pb-6 border-b border-gray-800 text-left">
             <div class="flex items-baseline gap-1">
-              <span class="text-gray-400 text-2xl font-bold">R$</span>
-              <span class="text-6xl font-black text-white tracking-tight"
+              <span class="text-gray-400 text-xl md:text-2xl font-bold">R$</span>
+              <span class="text-5xl md:text-6xl font-black text-white tracking-tight"
                 >97</span
               >
-              <span class="text-gray-400 font-bold text-lg">por mês</span>
+              <span class="text-gray-400 font-bold text-base md:text-lg">por mês</span>
             </div>
-            <p class="text-sm text-[#70C0D8] font-bold mt-2">
+            <p class="text-xs md:text-sm text-[#70C0D8] font-bold mt-2">
               cancele quando quiser.
             </p>
           </div>
 
-          <p class="text-gray-300 text-base leading-relaxed">
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed text-left">
             Por R$ 97, você coloca uma ferramenta ao lado da sua campanha para
             ajudar a transformar informação em conteúdo, organizar mensagens e
             acelerar uma das tarefas que mais consomem tempo durante uma
@@ -82,7 +82,7 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
             href="https://pay.hotmart.com/SEU_LINK_AQUI"
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full text-center py-5 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-xl"
+            class="block w-full text-center py-4 md:py-5 px-6 bg-[#F04820] hover:bg-[#d03b18] text-white font-extrabold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 uppercase tracking-wide text-lg md:text-xl"
           >
             QUERO ACESSAR A MÁQUINA
           </a>
@@ -90,7 +90,7 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
       </div>
 
       <!-- Urna / Imagem -->
-      <div class="relative flex items-center justify-center p-4">
+      <div class="relative flex items-center justify-center p-2">
         <div
           class="absolute inset-0 bg-[#0894B0]/10 rounded-3xl filter blur-3xl -z-10"
         >
@@ -98,7 +98,7 @@ import { Check, ShieldCheck, Zap, ArrowRight, Lock } from "@lucide/astro";
         <img
           src="/urnaEleitoral.avif"
           alt="Urna Eleitoral"
-          class="w-full max-w-md h-auto object-contain rounded-2xl drop-shadow-2xl"
+          class="w-full max-w-sm md:max-w-md h-auto object-contain rounded-2xl drop-shadow-2xl"
           loading="lazy"
         />
       </div>
