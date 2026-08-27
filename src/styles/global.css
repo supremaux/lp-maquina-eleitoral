@@ -2,20 +2,74 @@
 
 @layer base {
   :root {
-    --color-primary: #0894B0;
-    --color-cta: #F04820;
-    --color-secondary: #70C0D8;
+    --color-primary: #0894b0;
+    --color-cta: #f04820;
+    --color-secondary: #70c0d8;
     --color-dark: #182838;
-    --color-light: #FFFFFF;
+    --color-light: #ffffff;
+  }
+
+  /* src/styles/fonts.css */
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-Bold.ttf") format("ttf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-ExtraBold.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-ExtraBold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-ExtraBold.ttf") format("ttf");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/PlusJakartaSans-ExtraBold.ttf") format("ttf");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: var(--color-dark);
     background-color: var(--color-light);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Archivo', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Archivo", sans-serif;
   }
 }
