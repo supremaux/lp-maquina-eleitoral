@@ -14,6 +14,12 @@ const {
   image = "/og-image.png", // Adicione a imagem de preview (1200x630px) na pasta public/
   canonicalURL = Astro.url.href,
 } = Astro.props;
+
+// ============================================
+// 🔥 CORREÇÃO: GTM Otimizado com Lazy Load
+// ============================================
+const GTM_ID = "GTM-T7D2C9MR"; // Seu GTM ID
+const GA_ID = "G-xxxxxxxxx"; // Seu GA4 ID
 ---
 
 <!doctype html>
@@ -46,11 +52,71 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- ============================================ -->
+    <!-- 🔥 GTM OTIMIZADO: Carregamento Assíncrono     -->
+    <!-- ============================================ -->
+    <script is:inline>
+      // Inicializa o dataLayer imediatamente
+      window.dataLayer = window.dataLayer || [];
+
+      // Função que carrega o GTM apenas após a interação do usuário ou com idle
+      function loadGTM() {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtm.js?id=" + "{GTM_ID}";
+        document.head.appendChild(script);
+
+        // Push do evento de inicialização
+        window.dataLayer.push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+      }
+
+      // ============================================
+      // Estratégia Híbrida (Recomendada)
+      // ============================================
+
+      // Carrega com idle (não bloqueia renderização)
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadGTM, { timeout: 3000 });
+      } else {
+        setTimeout(loadGTM, 2000);
+      }
+
+      // Também carrega na interação (para usuários que interagem antes do idle)
+      ["click", "touchstart", "scroll", "keydown"].forEach((event) => {
+        document.addEventListener(event, loadOnInteraction, {
+          once: true,
+          passive: true,
+        });
+      });
+    </script>
+
+    <!-- Fallback: carregamento direto apenas se o usuário permitir (GDPR) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T7D2C9MR"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
   </head>
 
   <body
     class="bg-[#182838] text-white font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#0894B0] selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden"
   >
+    <!-- ============================================ -->
+    <!-- 🔥 GTM NOSCRIPT (Fallback)                   -->
+    <!-- ============================================ -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T7D2C9MR"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- Slot para os componentes da página -->
     <main>
       <slot />
