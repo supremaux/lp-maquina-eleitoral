@@ -16,7 +16,6 @@ const {
 } = Astro.props;
 
 const GTM_ID = "GTM-T7D2C9MR";
-const GA_ID = "G-N405D30YMK";
 ---
 
 <!doctype html>
@@ -51,74 +50,38 @@ const GA_ID = "G-N405D30YMK";
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <!-- ============================================ -->
-    <!-- 🔥 GTM CORRIGIDO - Carregamento Otimizado    -->
+    <!-- 🔥 GOOGLE TAG MANAGER - INSTALAÇÃO OFICIAL  -->
     <!-- ============================================ -->
     <script is:inline>
-      // 1. Inicializa o dataLayer ANTES do GTM
-      window.dataLayer = window.dataLayer || [];
-
-      // 2. Função para carregar o GTM
-      function loadGTM() {
-        // Evita carregar múltiplas vezes
-        if (window._gtm_loaded) return;
-        window._gtm_loaded = true;
-
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
-        document.head.appendChild(script);
-
-        // Notifica que o GTM foi carregado
-        window.dataLayer.push({
-          event: "gtm.js",
-          "gtm.start": new Date().getTime(),
-        });
-      }
-
-      // 3. Carrega GTM de forma otimizada
-      if (document.readyState === "complete") {
-        // Já carregou, carrega imediatamente
-        loadGTM();
-      } else {
-        // Aguarda o carregamento completo da página
-        window.addEventListener("load", loadGTM);
-      }
-
-      // 4. Fallback: carrega após 2 segundos se ainda não carregou
-      setTimeout(() => {
-        if (!window._gtm_loaded) {
-          loadGTM();
-        }
-      }, 2000);
+      // Código EXATAMENTE como no GTM
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-T7D2C9MR");
     </script>
-
-    <!-- Script para eventos do React (opcional, mas recomendado) -->
-    <script is:inline>
-      // Função global para disparar eventos do GTM
-      window.gtmPush = function (eventName, eventData = {}) {
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: eventName,
-            ...eventData,
-          });
-        }
-      };
-    </script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body
     class="bg-[#182838] text-white font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#0894B0] selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden"
   >
     <!-- ============================================ -->
-    <!-- 🔥 GTM NOSCRIPT (Corrigido)                  -->
+    <!-- 🔥 GTM NOSCRIPT - INSTALAÇÃO OFICIAL        -->
     <!-- ============================================ -->
     <noscript>
       <iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T7D2C9MR"
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe>
     </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <main>
       <slot />
