@@ -11,15 +11,12 @@ interface Props {
 const {
   title = "Máquina de Conteúdo Eleitoral · Estratégia Digital para Pré-Campanha",
   description = "Automatize a produção de conteúdos eleitorais em múltiplos formatos: Reels, Carrosséis, Stories, WhatsApp e Discursos com inteligência tática.",
-  image = "/og-image.png", // Adicione a imagem de preview (1200x630px) na pasta public/
+  image = "/og-image.png",
   canonicalURL = Astro.url.href,
 } = Astro.props;
 
-// ============================================
-// 🔥 CORREÇÃO: GTM Otimizado com Lazy Load
-// ============================================
-const GTM_ID = "GTM-T7D2C9MR"; // Seu GTM ID
-const GA_ID = "G-N405D30YMK"; // Seu GA4 ID
+const GTM_ID = "GTM-T7D2C9MR";
+const GA_ID = "G-N405D30YMK";
 ---
 
 <!doctype html>
@@ -54,70 +51,75 @@ const GA_ID = "G-N405D30YMK"; // Seu GA4 ID
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <!-- ============================================ -->
-    <!-- 🔥 GTM OTIMIZADO: Carregamento Assíncrono     -->
+    <!-- 🔥 GTM CORRIGIDO - Carregamento Otimizado    -->
     <!-- ============================================ -->
     <script is:inline>
-      // Inicializa o dataLayer imediatamente
+      // 1. Inicializa o dataLayer ANTES do GTM
       window.dataLayer = window.dataLayer || [];
 
-      // Função que carrega o GTM apenas após a interação do usuário ou com idle
+      // 2. Função para carregar o GTM
       function loadGTM() {
+        // Evita carregar múltiplas vezes
+        if (window._gtm_loaded) return;
+        window._gtm_loaded = true;
+
         const script = document.createElement("script");
         script.async = true;
-        script.src = "https://www.googletagmanager.com/gtm.js?id=" + "{GTM_ID}";
+        script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
         document.head.appendChild(script);
 
-        // Push do evento de inicialização
+        // Notifica que o GTM foi carregado
         window.dataLayer.push({
-          "gtm.start": new Date().getTime(),
           event: "gtm.js",
+          "gtm.start": new Date().getTime(),
         });
       }
 
-      // ============================================
-      // Estratégia Híbrida (Recomendada)
-      // ============================================
-
-      // Carrega com idle (não bloqueia renderização)
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(loadGTM, { timeout: 3000 });
+      // 3. Carrega GTM de forma otimizada
+      if (document.readyState === "complete") {
+        // Já carregou, carrega imediatamente
+        loadGTM();
       } else {
-        setTimeout(loadGTM, 2000);
+        // Aguarda o carregamento completo da página
+        window.addEventListener("load", loadGTM);
       }
 
-      // Também carrega na interação (para usuários que interagem antes do idle)
-      ["click", "touchstart", "scroll", "keydown"].forEach((event) => {
-        document.addEventListener(event, loadOnInteraction, {
-          once: true,
-          passive: true,
-        });
-      });
+      // 4. Fallback: carrega após 2 segundos se ainda não carregou
+      setTimeout(() => {
+        if (!window._gtm_loaded) {
+          loadGTM();
+        }
+      }, 2000);
     </script>
 
-    <!-- Fallback: carregamento direto apenas se o usuário permitir (GDPR) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-T7D2C9MR"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe>
-    </noscript>
+    <!-- Script para eventos do React (opcional, mas recomendado) -->
+    <script is:inline>
+      // Função global para disparar eventos do GTM
+      window.gtmPush = function (eventName, eventData = {}) {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: eventName,
+            ...eventData,
+          });
+        }
+      };
+    </script>
   </head>
 
   <body
     class="bg-[#182838] text-white font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#0894B0] selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden"
   >
     <!-- ============================================ -->
-    <!-- 🔥 GTM NOSCRIPT (Fallback)                   -->
+    <!-- 🔥 GTM NOSCRIPT (Corrigido)                  -->
     <!-- ============================================ -->
     <noscript>
       <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-T7D2C9MR"
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe>
     </noscript>
-    <!-- Slot para os componentes da página -->
+
     <main>
       <slot />
     </main>
