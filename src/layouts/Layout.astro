@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import UTMify from "../components/UTMify.astro";
 
 interface Props {
   title?: string;
@@ -86,6 +87,11 @@ const GTM_ID = "GTM-T7D2C9MR";
     <main>
       <slot />
     </main>
+
+    <!-- ============================================ -->
+    <!-- 🔥 UTMIFY - CARREGAMENTO OTIMIZADO         -->
+    <!-- ============================================ -->
+    <UTMify />
   </body>
 </html>
 

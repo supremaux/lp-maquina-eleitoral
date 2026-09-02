@@ -1,0 +1,35 @@
+---
+// Esse componente será carregado apenas em produção e com baixa prioridade
+const isProduction = import.meta.env.PROD;
+const UTMIFY_SCRIPT_URL = "https://seu-utmify-url.com/script.js"; // Substitua pela URL real
+
+// Script otimizado para carregamento assíncrono com delay
+const scriptSnippet = `
+(function() {
+  // Delay de 2 segundos para não bloquear o carregamento principal
+  setTimeout(function() {
+    var script = document.createElement('script');
+    script.src = '${UTMIFY_SCRIPT_URL}';
+    script.async = true;
+    script.defer = true;
+    
+    // Carrega após o DOM estar pronto
+    if (document.readyState === 'complete') {
+      document.head.appendChild(script);
+    } else {
+      window.addEventListener('load', function() {
+        document.head.appendChild(script);
+      });
+    }
+  }, 2000);
+})();
+`;
+---
+
+{
+  isProduction && (
+    <>
+      <script is:inline set:html={scriptSnippet} />
+    </>
+  )
+}

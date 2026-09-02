@@ -1,0 +1,39 @@
+---
+const isProduction = import.meta.env.PROD;
+const REDIRECT_URL = "https://meubackredirect.com.br"; // Altere para sua URL
+
+const scriptSnippet = `
+// Script de back redirect otimizado
+(function() {
+  function setBackRedirect(url) {
+    let urlBackRedirect = url.trim();
+    
+    // Adiciona os parâmetros da URL atual
+    const searchParams = document.location.search;
+    if (searchParams) {
+      urlBackRedirect += (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') + searchParams.replace('?', '');
+    }
+    
+    // Adiciona apenas 1 state para evitar sobrecarga
+    history.pushState({}, '', location.href);
+    
+    window.addEventListener('popstate', function() {
+      setTimeout(function() {
+        location.href = urlBackRedirect;
+      }, 50);
+    }, { once: true });
+  }
+  
+  // Aguarda o carregamento completo para não interferir
+  if (document.readyState === 'complete') {
+    setBackRedirect('${REDIRECT_URL}');
+  } else {
+    window.addEventListener('load', function() {
+      setBackRedirect('${REDIRECT_URL}');
+    });
+  }
+})();
+`;
+---
+
+{isProduction && <script is:inline set:html={scriptSnippet} />}
