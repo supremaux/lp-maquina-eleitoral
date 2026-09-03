@@ -50,10 +50,21 @@ const GTM_ID = "GTM-T7D2C9MR";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+    <!-- Preconectar a Kiwify -->
+    <link rel="preconnect" href="pay.kiwify.com.br" />
+
+    <noscript>
+      <iframe
+        src="https://pay.kiwify.com.br"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
     <!-- ============================================ -->
     <!-- 🔥 GOOGLE TAG MANAGER - INSTALAÇÃO OFICIAL  -->
     <!-- ============================================ -->
-    <script is:inline>
+    <script is:inline defer>
       // Código EXATAMENTE como no GTM
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
